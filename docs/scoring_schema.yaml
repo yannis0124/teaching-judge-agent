@@ -1,0 +1,137 @@
+scoring_mode: "完整评分表100分"
+total_score: 100
+score_precision: 0.5
+modules:
+  - id: case_design
+    name: "线上评审：案例整体设计"
+    max_score: 20
+    required_material: "application_form"
+    indicators:
+      - id: case_goal
+        agent_file: "case_goal_agent.json"
+        name: "课程思政与文化思想育人目标"
+        max_score: 5
+        focus: "目标准确，把握课程思政建设与习近平文化思想“三进”要求，体现文旅融合人才素养要求；对学生思想政治素质、审美素养、数字素养、专业能力的描述具体、清晰；字数在500字以内，逻辑连贯。"
+        cautions:
+          - "不得因出现课程思政、文化思想等词语就直接给高分。"
+          - "需判断目标是否具体、自然、系统、可实施。"
+      - id: case_overview_implementation
+        agent_file: "case_overview_implementation_agent.json"
+        name: "案例综述与设计实施"
+        max_score: 6
+        focus: "案例综述清晰概括课程核心内容；理念与思路体现课程思政、习近平文化思想进课堂与专业教学的深度融合；设计与实施过程具有可操作性和创新性；内容在1000字以内，结构完整。"
+        cautions:
+          - "不得因为文字包装华丽就给高分。"
+      - id: case_feature_innovation
+        agent_file: "case_feature_innovation_agent.json"
+        name: "案例特色与创新"
+        max_score: 5
+        focus: "提炼明确特色亮点；体现文旅融合、红色基因、文化“两创”、美育渗透等元素；创新点具有实践价值和推广意义；内容在500字以内，表述简洁到位。"
+        cautions:
+          - "创新点必须有材料证据支撑。"
+      - id: case_material_norm
+        agent_file: "case_material_norm_agent.json"
+        name: "材料规范性与完整性"
+        max_score: 4
+        focus: "申报表各项信息填写完整；教材信息、学分学时等细节准确；格式符合要求。"
+        cautions:
+          - "模板未填写或只有标题无正文，应标记材料规范性问题。"
+  - id: lesson_plan
+    name: "线上评审：教案"
+    max_score: 20
+    required_material: "lesson_plan"
+    indicators:
+      - id: lesson_elements
+        agent_file: "lesson_elements_agent.json"
+        name: "教学要素完整，版式规范"
+        max_score: 3
+        focus: "教案的任务目标、学时、授课时间明确合理；教学基本要素完整、简明；详略得当。"
+        cautions:
+          - "旧版.doc第一版不解析，需提示转换为docx。"
+      - id: lesson_ideology_culture
+        agent_file: "lesson_ideology_culture_agent.json"
+        name: "课程思政、文化思想系统设计"
+        max_score: 5
+        focus: "落实课程思政与习近平文化思想；思政、文化元素贯穿教学目标、内容、方法、评价全环节；培养学生职业综合素养；美育元素有机融入，体现以美育人理念。"
+        cautions:
+          - "不得把口号化表述等同于系统设计。"
+      - id: lesson_student_objectives
+        agent_file: "lesson_student_objectives_agent.json"
+        name: "学情分析精准，教学目标可评可测"
+        max_score: 3
+        focus: "客观分析学生知识和技能基础、认知和实践能力、学习特点等；教学目标具体清晰、相互关联、逐渐递进；重点突出、可评可测。"
+        cautions:
+          - "泛泛学情分析不能支撑高分。"
+      - id: lesson_content_strategy
+        agent_file: "lesson_content_strategy_agent.json"
+        name: "教学内容科学，教学策略恰当"
+        max_score: 6
+        focus: "教学内容对接新方法、新技术、新工艺、新标准；体现文旅行业发展新趋势；有效支撑教学目标实现；教学设计科学合理，教学过程系统优化；突出项目式、任务式、案例式、情境化等教学方式。"
+        cautions:
+          - "只列活动名称但缺少实施过程，应谨慎评分。"
+      - id: lesson_evaluation_reflection
+        agent_file: "lesson_evaluation_reflection_agent.json"
+        name: "教学评价科学，课后反思深刻"
+        max_score: 3
+        focus: "针对目标要求开展教学与实践的考核与评价；评价应与前序学情分析和后续学习成效紧密关联；课后反思聚焦授课实效、改革创新；针对不足的改进措施科学有效。"
+        cautions:
+          - "模板化反思或空泛改进措施不能支撑高分。"
+  - id: live_teaching
+    name: "现场教学展示"
+    max_score: 60
+    required_material: "video"
+    indicators:
+      - id: moral_culture
+        agent_file: "moral_culture.json"
+        name: "坚持立德树人，体现德技并修"
+        max_score: 12
+        focus: "落实立德树人，结合课程特点挖掘思政元素，讲课过程中能结合专业特色，融入习近平文化思想，达到润物无声的育人效果。"
+        cautions:
+          - "不得把出现思政话语等同于课程思政有效。"
+          - "警惕口号化、标签化、硬植入。"
+      - id: vocational_feature
+        agent_file: "vocational_feature.json"
+        name: "凸显职业教育类型特色"
+        max_score: 10
+        focus: "依据教案开展教学，教学任务完整；教学内容清晰准确，教学活动安排合理，教学过程突出学生中心，遵循学生认知规律，凸显职业教育类型特色。"
+        cautions:
+          - "重点关注职业场景、岗位任务、实践活动、学生参与。"
+      - id: aesthetic_education
+        agent_file: "aesthetic_education.json"
+        name: "渗透美育教育，提升审美素养"
+        max_score: 5
+        focus: "将美育元素有机融入专业教学，引导学生发现美、欣赏美、创造美；结合专业特点，在教学中渗透美学教育，培养学生健康的审美情趣和艺术修养。"
+        cautions:
+          - "PPT好看不等于美育。"
+          - "放几张漂亮图片不等于美育。"
+      - id: teaching_quality
+        agent_file: "teaching_quality.json"
+        name: "课堂教学质量高、效果好"
+        max_score: 10
+        focus: "课堂教学活动设计合理、逻辑清晰，重难点突出，课堂气氛活跃，学生积极参与；教师能说会做善导，学生乐学、学会，有效达成教学目标；教学展示呈现真实教学，师生服装符合日常教学状态。"
+        cautions:
+          - "课堂热闹不等于学习有效。"
+          - "教师表达流畅不等于课堂质量高。"
+      - id: ai_application
+        agent_file: "ai_application.json"
+        name: "人工智能技术运用恰当"
+        max_score: 15
+        focus: "应用人工智能等数智化教学手段，技术方法与课程内容、思政元素、美育元素自然融合；体现思想性、科学性、先进性、适用性、规范性要求，驱动学生高阶能力培养，形成人机协同教学新范式。"
+        cautions:
+          - "出现AI工具不等于AI教学有效。"
+          - "低水平：教师展示一个AI结果。"
+          - "中等水平：学生使用AI完成任务。"
+          - "高水平：学生在AI支持下完成分析、判断、生成、评价、修正，教师引导学生审查AI结果，形成真正的人机协同学习过程。"
+      - id: teacher_quality
+        agent_file: "teacher_quality.json"
+        name: "展示教师良好综合素养"
+        max_score: 8
+        focus: "教师课堂教学素养水平高，态度认真、严谨规范、教态自然、表述清晰、亲和力强、富有特色；实训教学讲解和操作配合恰当，规范娴熟、示范有效，符合职业岗位要求，展现良好“双师”素养。"
+        cautions:
+          - "不能因为教师气场强，就把其他维度一起抬高。"
+          - "语言感染力需结合语言清晰度、语速节奏、情绪投入、亲和力、启发性表达和课堂带入感；不得把声音大、语速快、表达流畅简单等同于感染力。"
+evidence_sufficiency:
+  高: "证据完整、直接、可回溯，足以支撑评分"
+  中: "缺少部分证据，但仍有较充分支撑"
+  低: "证据单一或明显不足，不得给出过高建议分"
+  不足: "无法支撑该项评分，必须人工复核"
