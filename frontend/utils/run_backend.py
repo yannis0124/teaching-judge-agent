@@ -6,9 +6,11 @@ import sys
 from pathlib import Path
 
 
-def run_candidate(candidate_id: str, root: Path) -> tuple[int, str]:
+def run_candidate(candidate_id: str, root: Path, env_overrides: dict[str, str] | None = None) -> tuple[int, str]:
     command = [sys.executable, "app.py", "--candidate", candidate_id]
     env = os.environ.copy()
+    if env_overrides:
+        env.update(env_overrides)
     process = subprocess.Popen(
         command,
         cwd=str(root),

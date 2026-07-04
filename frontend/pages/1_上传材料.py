@@ -10,6 +10,7 @@ if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
 
 from frontend.utils.file_utils import candidate_material_dir, next_candidate_id, outputs_dir, sanitize_candidate_id, save_uploaded_file
+from frontend.utils.api_config import api_config_error, api_status_text, get_api_env_overrides
 from frontend.utils.result_loader import read_json
 from frontend.utils.run_backend import run_candidate
 
@@ -122,18 +123,25 @@ st.divider()
 st.subheader("运行评审")
 st.caption(f"点击后调用现有后端命令：python app.py --candidate {run_candidate_id}")
 st.info(f"当前将运行：`materials/{run_candidate_id}/`")
+api_col, switch_col = st.columns([3, 1])
+api_col.info(api_status_text(ROOT))
+with switch_col:
+    st.page_link("pages/8_API设置.py", label="切换 API")
 
 if st.button("运行评审", disabled=not bool(candidate_id)):
     candidate_dir = candidate_material_dir(run_candidate_id, ROOT)
+    api_error = api_config_error(ROOT)
     if not candidate_dir.exists():
         st.error(f"`materials/{run_candidate_id}/` 不存在。请先保存上方材料后再运行评审。")
     elif not (candidate_dir / "videos.mp4").exists() and not (candidate_dir / "video.mp4").exists():
         st.error("缺少现场教学视频，无法进行现场展示评分。")
     elif not (candidate_dir / "transcript.srt").exists():
         st.error("缺少 transcript.srt。请先上传并保存字幕稿后再运行评审。")
+    elif api_error:
+        st.error(api_error)
     else:
         with st.spinner("后端评审运行中，请稍候..."):
-            return_code, log_text = run_candidate(run_candidate_id, ROOT)
+            return_code, log_text = run_candidate(run_candidate_id, ROOT, get_api_env_overrides())
         st.code(log_text or "无运行日志", language="text")
         if return_code == 0:
             st.success(f"评审流程已结束。输出目录：`outputs/{run_candidate_id}/`")
