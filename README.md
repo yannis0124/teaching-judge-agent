@@ -77,7 +77,11 @@ python -m pip install -r requirements.txt
 
 ## 6. 设置 DEEPSEEK_API_KEY
 
-系统通过环境变量读取 DeepSeek API Key，不会在代码中写死 Key。项目使用 DeepSeek 兼容 OpenAI SDK 的 Chat API 进行多Agent文本评审。
+公开仓库不包含任何 DeepSeek API Key，默认也不会预置 Key。每位使用者需要自行补充自己的 Key。
+
+推荐方式：启动前端后，进入左侧导航的“API设置”，选择“使用我的个人 API”，填写自己的 `DEEPSEEK_API_KEY`。该配置只保存在当前浏览器会话中，不会写入代码、README 或 GitHub。
+
+项目也支持通过环境变量读取 DeepSeek API Key。项目使用 DeepSeek 兼容 OpenAI SDK 的 Chat API 进行多Agent文本评审。
 
 PowerShell 示例：
 

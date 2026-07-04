@@ -16,7 +16,7 @@ DEFAULT_MODEL = "deepseek-v4-flash"
 
 
 def init_api_config() -> None:
-    st.session_state.setdefault(API_MODE_KEY, "system")
+    st.session_state.setdefault(API_MODE_KEY, "custom")
     st.session_state.setdefault(BASE_URL_KEY, os.getenv("DEEPSEEK_BASE_URL", DEFAULT_BASE_URL))
     st.session_state.setdefault(MODEL_KEY, os.getenv("DEEPSEEK_MODEL", DEFAULT_MODEL))
 
